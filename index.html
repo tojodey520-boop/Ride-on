@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIDE ON | Kharagpur ↔ Kolkata Cab</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#090909;color:#fff}
+.hero{min-height:100vh;padding:28px 7%;display:flex;align-items:center;background:
+linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.76) 48%,rgba(0,0,0,.35)),url('car.jpeg') center/cover}
+.wrap{max-width:1100px;width:100%;margin:auto}
+.logo{font-size:48px;font-weight:900;letter-spacing:4px;color:#d7a83b}
+.tag{margin:8px 0 28px;color:#ddd;font-size:18px}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.02;max-width:650px}
+.gold{color:#d7a83b}
+.route{font-size:23px;margin:24px 0;color:#eee}
+.price{display:inline-block;background:#d7a83b;color:#090909;padding:14px 24px;border-radius:12px;font-size:28px;font-weight:800;margin-bottom:25px}
+.card{max-width:540px;background:rgba(15,15,15,.92);border:1px solid #8f6b22;border-radius:18px;padding:24px}
+.card h2{margin-bottom:16px;color:#d7a83b}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select,button{width:100%;padding:14px;border-radius:9px;border:1px solid #555;font-size:16px}
+input,select{background:#fff;color:#111}
+button{background:#d7a83b;color:#111;border:0;font-weight:800;cursor:pointer;margin-top:12px}
+button:hover{filter:brightness(1.08)}
+.full{grid-column:1/-1}
+.info{margin-top:15px;color:#ccc;line-height:1.6}
+.phone{display:inline-block;margin-top:14px;color:#fff;font-size:20px;font-weight:700}
+@media(max-width:700px){.hero{padding:30px 20px;align-items:flex-start}.logo{font-size:36px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.card{margin-top:25px}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="wrap">
+<div class="logo">RIDE ON</div>
+<div class="tag">Premium AC Cab Service • Safe Journey, Every Time</div>
+<h1>Kharagpur <span class="gold">↔</span> Kolkata</h1>
+<div class="route">Comfortable AC cab • One Way Booking</div>
+<div class="price">₹2,500 <small style="font-size:15px">ONE WAY</small></div>
+
+<div class="card">
+<h2>Book Your Ride</h2>
+<form id="bookingForm">
+<div class="grid">
+<input id="name" placeholder="Passenger Name" required>
+<input id="phone" placeholder="Phone Number" inputmode="tel" required>
+<select id="route" required>
+<option value="">Select Route</option>
+<option>Kharagpur → Kolkata</option>
+<option>Kolkata → Kharagpur</option>
+</select>
+<input id="date" type="date" required>
+<input id="time" type="time" required>
+<input id="pickup" class="full" placeholder="Pickup Location" required>
+<input id="drop" class="full" placeholder="Drop Location" required>
+</div>
+<button type="submit">BOOK NOW</button>
+</form>
+<div class="info">Fare: <b>₹2,500 one way</b> • AC Cab</div>
+<a class="phone" href="tel:6294712674">📞 6294712674</a>
+</div>
+</div>
+</section>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const route=document.getElementById("route").value;
+  const date=document.getElementById("date").value;
+  const time=document.getElementById("time").value;
+  const pickup=document.getElementById("pickup").value.trim();
+  const drop=document.getElementById("drop").value.trim();
+
+  const msg=`RIDE ON Booking Request%0A%0AName: ${name}%0APhone: ${phone}%0ARoute: ${route}%0ADate: ${date}%0ATime: ${time}%0APickup: ${pickup}%0ADrop: ${drop}%0AFare: ₹2500 One Way%0AAC Cab`;
+  window.open("https://wa.me/916294712674?text="+msg, "_blank");
+});
+</script>
+</body>
+</html>
